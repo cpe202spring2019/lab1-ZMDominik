@@ -41,6 +41,9 @@ class TestLab1(unittest.TestCase):
         with self.assertRaises(ValueError):
             r(tlist)
 
+    def test_reverse_rec_empty_list(self):
+        self.assertEqual(r([]), [])
+
     def test_bin_search_no_repeats_in_list(self):
         list_val = [0, 1, 2, 3, 4, 7, 8, 9, 10]
         self.assertEqual(b(4, 0, len(list_val)-1, list_val), 4)
@@ -57,6 +60,10 @@ class TestLab1(unittest.TestCase):
     def test_bin_search_no_val(self):
         tlist = [0, 2, 3, 4, 5, 6]
         self.assertEqual(b(1, 0, len(tlist)-1, tlist), None)
+
+    def test_bin_search_empty_list(self):
+        tlist = []
+        self.assertEqual(b(1, 0, 1, tlist), None)
 
 
 if __name__ == "__main__":
